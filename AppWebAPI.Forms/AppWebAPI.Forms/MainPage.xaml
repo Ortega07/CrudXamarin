@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WebAPI"
+             x:Class="WebAPI.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <StackLayout Padding="10,15,10,0">
+            <Label x:Name="texto"
+               IsVisible="False"
+               Text=""
+               FontSize="Large"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="Center" />
+        </StackLayout>
+        <StackLayout x:Name="Campos"
+            IsVisible="False"
+            >
+            <Entry x:Name="txtId"
+                   IsVisible="False"
+                  />
+            <Entry x:Name="txtNome"
+                   Placeholder="Nome do produto"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   WidthRequest="300"
+                   FontSize="Medium"/>
+
+            <Entry x:Name="txtCategoria"
+                   Placeholder="Categoria do produto"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   WidthRequest="300"
+                   HorizontalOptions="Center"
+                   FontSize="Medium" />
+
+            <Entry x:Name="txtPreco"
+                   Placeholder="Preço do produto"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   WidthRequest="300"
+                   HorizontalOptions="Center"
+                   FontSize="Medium" />
+            
+            <Button x:Name="btn3"
+                    IsVisible="False"
+                Text="Adicionar"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="OnBtn3" />
+            
+            <StackLayout x:Name="btns4n5"
+                IsVisible="False"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Horizontal">
+                <Button x:Name="btn4"
+                    Text="Atualizar"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="Center"
+                    Clicked="OnBtn4" />
+
+                <Button x:Name="btn5"
+                    Text="Deletar"
+                    Clicked="OnBtn5" />
+            </StackLayout>
+        </StackLayout>
+        
+        <StackLayout
+            VerticalOptions="Center"
+            HorizontalOptions="CenterAndExpand"
+            Orientation="Horizontal">
+            <Button x:Name="btn2"
+                Text="Novo Produto"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="OnBtn2" />
+            <Button x:Name="btn1"
+                Text=""
+                Clicked="OnBtn1" />
+            <Button x:Name="btn6"
+                Text="Atualizar Lista"
+                Clicked="OnBtn6" />
+        </StackLayout>
+        <StackLayout Padding="10,15,10,0">
+            <ListView x:Name="lista"
+            ItemsSource="{Binding Produto}"
+            ItemSelected="ListaProdutos"
+            >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10,10" Orientation="Horizontal">
+                                <Label Text="{Binding Id}" TextColor="Black" HorizontalOptions="Start"/>
+                                <Label Text="{Binding Nome}" TextColor="Black" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding Categoria}" TextColor="Blue" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Preco}" TextColor="Black" HorizontalOptions="End"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>
